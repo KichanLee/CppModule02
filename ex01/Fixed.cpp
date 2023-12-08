@@ -6,7 +6,7 @@
 /*   By: kichlee <kichlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:51:36 by kichlee           #+#    #+#             */
-/*   Updated: 2023/12/08 18:18:33 by kichlee          ###   ########.fr       */
+/*   Updated: 2023/12/08 19:09:58 by kichlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ Fixed::Fixed(const int num){
     this->fixedPointVaule = num << bit;   
 }
 
-Fixed::Fixed(float num){             
+Fixed::Fixed(float num){  
     std::cout << "Float constructor called" << "\n";
     
-    (this->fixedPointVaule) = num * 256 ;   
-    roundf(this->fixedPointVaule);
+    (this->fixedPointVaule) = roundf(num * 256) ;   
 }
 
 Fixed::Fixed(const Fixed &rhs):fixedPointVaule(rhs.fixedPointVaule){
@@ -57,13 +56,14 @@ int     Fixed::toInt(void)     const
 }
 
 float   Fixed::toFloat(void)   const
-{
-    return (this->fixedPointVaule / 256);   
+{   
+    return (float)this->fixedPointVaule / 256;   
 }
+
 
 std::ostream& operator<<(std::ostream& os, const Fixed& rhs) {
     
-    std::cout << rhs.getRawBits() << std::endl;
+    std::cout << rhs.toFloat() << std::endl;
 
     return os;
 }
