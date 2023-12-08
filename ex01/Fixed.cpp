@@ -6,7 +6,7 @@
 /*   By: kichlee <kichlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:51:36 by kichlee           #+#    #+#             */
-/*   Updated: 2023/12/06 15:02:57 by kichlee          ###   ########.fr       */
+/*   Updated: 2023/12/08 18:18:33 by kichlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,48 +16,56 @@ Fixed::Fixed() : fixedPointVaule(0){
     std::cout << "Default constructor called" << "\n";
 }
 
-Fixed::~Fixed()
-{
+Fixed::~Fixed(){
     std::cout << "Destructor called" << "\n";
 }
 
-Fixed::Fixed(const int num)
-{
-    // 매개변수로 정수형 상수를 받아와
-    // 이를 대응되는 고정(8) 소수점값으로 변환하는 생성자
-    // 분수 비트 값은 ex00때와 같이 초기화됩니다.
-    this->fixedPointVaule = num;
-    
-    
+Fixed::Fixed(const int num){             
+    std::cout << "Int constructor called" << "\n";
+    this->fixedPointVaule = num << bit;   
 }
 
-Fixed::Fixed() : fixedPointVaule(0){
-    std::cout << "Default constructor called" << "\n";
+Fixed::Fixed(float num){             
+    std::cout << "Float constructor called" << "\n";
+    
+    (this->fixedPointVaule) = num * 256 ;   
+    roundf(this->fixedPointVaule);
 }
-
-
 
 Fixed::Fixed(const Fixed &rhs):fixedPointVaule(rhs.fixedPointVaule){
-
     std::cout << "Copy constructor called" << "\n";
 }
 
-Fixed& Fixed::operator=(const Fixed &rhs)
-{
+Fixed& Fixed::operator=(const Fixed &rhs){
+    std::cout << "Copy assignment operator called" << "\n";
     if(this != &rhs)
         this->fixedPointVaule  = rhs.fixedPointVaule;
-    std::cout << "Assignation operator called" << "\n";
     return (*this);
 }
 
-int Fixed::getRawBits(void) const
-{
-    std::cout << "getRawBits member function called" << "\n";
-
-    return this->fixedPointVaule;
-    
+int Fixed::getRawBits(void) const{
+       return this->fixedPointVaule;
 }
-void   Fixed::setRawBits(int const raw)
-{
+void   Fixed::setRawBits(int const raw){
+   
     this->fixedPointVaule = raw;
 }
+
+int     Fixed::toInt(void)     const
+{
+    return (this->fixedPointVaule >> bit);
+}
+
+float   Fixed::toFloat(void)   const
+{
+    return (this->fixedPointVaule / 256);   
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& rhs) {
+    
+    std::cout << rhs.getRawBits() << std::endl;
+
+    return os;
+}
+
+           
