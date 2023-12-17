@@ -6,7 +6,7 @@
 /*   By: kichlee <kichlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:51:36 by kichlee           #+#    #+#             */
-/*   Updated: 2023/12/10 18:22:43 by kichlee          ###   ########.fr       */
+/*   Updated: 2023/12/17 16:49:56 by kichlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Fixed::Fixed(const Fixed &rhs):fixedPointVaule(rhs.fixedPointVaule){
     std::cout << "Copy constructor called" << "\n";
 }
 
-Fixed Fixed::operator=(const Fixed &rhs){
+Fixed& Fixed::operator=(const Fixed &rhs){
     std::cout << "Copy assignment operator called" << "\n";
     if(this != &rhs)
         this->fixedPointVaule  = rhs.fixedPointVaule;

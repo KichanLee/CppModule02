@@ -6,7 +6,7 @@
 /*   By: kichlee <kichlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:51:30 by kichlee           #+#    #+#             */
-/*   Updated: 2023/12/08 16:49:34 by kichlee          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:34:59 by kichlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int main( void ) {
   std::cout << "b is " << b << std::endl;
   std::cout << "c is " << c << std::endl;
   std::cout << "d is " << d << std::endl;
-
-
 
 
   std::cout << "a is " << a.toInt() << " as integer" << std::endl; 

@@ -1,32 +1,57 @@
 #include <iostream>
 
-class Widget {
-public:
-    static int count; // 모든 Widget 인스턴스의 수를 추적하는 정적 변수
+// class Number {
+// private:
+//     int value;
 
-    Widget() {
-        count++; // 생성자에서 카운트 증가
-    }
+// public:
+//     Number(int val) : value(val) {}
 
-    ~Widget() {
-        count--; // 소멸자에서 카운트 감소
-    }
+//     // + 연산자 오버로딩
+//     Number operator+(const Number& other) const {
+//         return Number(value + other.value);
+//     }
 
-    static int GetCount() {
-        return count; // 현재까지 생성된 Widget 인스턴스의 수 반환
-    }
-};
+//     // - 연산자 오버로딩
+//     Number operator-(const Number& other) const {
+//         return Number(value - other.value);
+//     }
 
-int Widget::count = 0; // 정적 변수 초기화
+//     // * 연산자 오버로딩
+//     Number operator*(const Number& other) const {
+//         return Number(value * other.value);
+//     }
+
+//     // / 연산자 오버로딩
+//     Number operator/(const Number& other) const {
+//         if (other.value == 0) {
+//             throw std::invalid_argument("Division by zero");
+//         }
+//         return Number(value / other.value);
+//     }
+
+//     // 값 출력을 위한 함수
+//     int getValue() const { return value; }
+// };
 
 int main() {
-    Widget w1;
-    Widget w2;
-    Widget w3;
-    w3.count = 7;
-    Widget w4;
-    Widget w5;
 
-    std::cout << "Current widget count: " << w1.count << " " <<  w2.count << std::endl;
+    int num = 0;
+    ++(++num);
+    (num++)++;
+    std::cout << num << std::endl;    
+    // Number num1(10);
+    // Number num2(5);
+
+    // Number sum = num1 + num2;       // 10 + 5
+    // Number difference = num1 - num2; // 10 - 5
+    // Number product = num1 * num2;    // 10 * 5
+    // Number quotient = num1 / num2;   // 10 / 5
+
+    // std::cout << "Sum: " << sum.getValue() << std::endl;
+    // std::cout << "Difference: " << difference.getValue() << std::endl;
+    // std::cout << "Product: " << product.getValue() << std::endl;
+    // std::cout << "Quotient: " << quotient.getValue() << std::endl;
+
     return 0;
 }
