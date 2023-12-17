@@ -6,7 +6,7 @@
 /*   By: kichlee <kichlee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:51:36 by kichlee           #+#    #+#             */
-/*   Updated: 2023/12/17 17:42:33 by kichlee          ###   ########.fr       */
+/*   Updated: 2023/12/17 20:14:02 by kichlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ Fixed::Fixed(const int num){
 }
 
 Fixed::Fixed(float num){  
-    (this->fixedPointVaule) = roundf((float)(num * 256));   
+    (this->fixedPointVaule) = roundf(num * 256) ;   
 }
 
 Fixed::Fixed(const Fixed &rhs):fixedPointVaule(rhs.fixedPointVaule){
+    fixedPointVaule= rhs.fixedPointVaule;
+}
+
+Fixed::Fixed(const Fixed &rhs){
+    *this=rhs;
 }
 
 Fixed& Fixed::operator=(const Fixed &rhs){
@@ -45,9 +50,8 @@ Fixed Fixed::operator-(const Fixed &rhs) const
 }
 Fixed Fixed::operator*(const Fixed &rhs) const
 {   
-       return Fixed(float( float(((fixedPointVaule) * (rhs.fixedPointVaule)) / 256 ) / 256));
-}  
-  // return Fixed(float(((fixedPointVaule) * (rhs.fixedPointVaule))/256)/256));
+    return Fixed(fixedPointVaule * rhs.fixedPointVaule);
+}
 Fixed Fixed::operator/(const Fixed &rhs) const
 {   
     return Fixed(fixedPointVaule / rhs.fixedPointVaule);

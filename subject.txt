@@ -1,0 +1,25 @@
+Point 클래스 구현 (정통 정준 형식):
+
+비공개 멤버:
+Fixed const 타입의 x 속성.
+Fixed const 타입의 y 속성.
+기타 유용한 요소들.
+공개 멤버:
+x와 y를 0으로 초기화하는 기본 생성자.
+두 개의 상수 부동소수점 숫자를 매개변수로 받아 x와 y를 
+이 값들로 초기화하는 생성자.
+복사 생성자.
+복사 대입 연산자 오버로드.
+소멸자.
+기타 유용한 요소들.
+
+
+Public members:
+◦ A default constructor that initializes x and y to 0.
+◦ A constructor that takes as parameters two constant 
+  floating-point numbers. 
+  It initializes x and y with those parameters.
+◦ A copy constructor.
+◦ A copy assignment operator overload.
+◦ A destructor.
+◦ Anything else useful.
