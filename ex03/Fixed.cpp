@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kichlee <kichlee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kichan <kichan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:51:36 by kichlee           #+#    #+#             */
-/*   Updated: 2023/12/17 20:14:02 by kichlee          ###   ########.fr       */
+/*   Updated: 2023/12/18 21:22:58 by kichan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ Fixed::Fixed(float num){
 
 Fixed::Fixed(const Fixed &rhs):fixedPointVaule(rhs.fixedPointVaule){
     fixedPointVaule= rhs.fixedPointVaule;
-}
-
-Fixed::Fixed(const Fixed &rhs){
-    *this=rhs;
 }
 
 Fixed& Fixed::operator=(const Fixed &rhs){
@@ -113,9 +109,6 @@ const   Fixed Fixed::operator--(int)
     this->fixedPointVaule++;
     return (temp);
 }
-
-
-
 
 int Fixed::getRawBits(void) const{
        return this->fixedPointVaule;
